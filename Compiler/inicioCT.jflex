@@ -31,6 +31,9 @@ faca { return Parser.LACO_FACA; }
 ate { return Parser.ATE; }
 se { return Parser.SE; }
 senao { return Parser.SENAO; }
+caso { return Parser.CASO; }
+opcao { return Parser.OPCAO; }
+fim_opcao { return Parser.FIM_OPCAO; }
 incluir	{ return Parser.INCLUIR; }
 inteiro { return Parser.INTEIRO; }
 real { return Parser.REAL; }
@@ -43,9 +46,12 @@ imprima(.*) { yyparser.yylval = new ParserVal(yytext().replace("imprima", ""));
 		  return Parser.IMPRIMA; }
 "{"	{ return Parser.ABRE_CHAVES; }
 "}" { return Parser.FECHA_CHAVES; }
+"["	{ return Parser.ABRE_COLCHETES; }
+"]" { return Parser.FECHA_COLCHETES; }
 "("	{ return Parser.ABRE_PARENTESES; }
 ")"	{ return Parser.FECHA_PARENTESES; }
 ":=" { return Parser.ATRIBUICAO; }
+":" { return Parser.BEGIN_CASO; }
 "/" { return Parser.DIVISAO; }
 "*" { return Parser.MULTIPLICACAO; }
 "-" { return Parser.SUBTRACAO; }
